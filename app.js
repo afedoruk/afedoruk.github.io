@@ -1747,7 +1747,7 @@ var vm = new Vue({
       var synth = window.speechSynthesis;
       var msgTxt = this.glueText(this.wordList1) + " " + this.glueText(this.wordList2) + " " + this.glueText(this.wordList3)
       var msg = new SpeechSynthesisUtterance(msgTxt);
-      msg.rate = 0.8
+      msg.rate = 1
       msg.pitch = 0.8
       //voices = synth.getVoices();
       //console.log(voices)
