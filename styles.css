@@ -4,11 +4,11 @@ body {
 }
 
 .string {
-  border: 1px solid #000;
+  border: 1px solid #eee;
   min-height: 50px;
   padding: 5px;
-  width: 400px;
-  margin: 10px;
+  max-width: 800px;
+  margin: 5px;
 }
 
 .string.ok {
@@ -16,11 +16,24 @@ body {
 }
 
 .pool {
+  max-width: 800px;
   min-height:200px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .word {
   cursor: pointer;
   margin: 5px;
   font-size: 20px;
+}
+
+.app-header {
+  font-size: 60;
+  margin: 30px;
+}
+
+.app-container {
+  margin: auto;
+  width: 70%;
 }
