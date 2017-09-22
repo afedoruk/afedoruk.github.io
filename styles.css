@@ -34,6 +34,8 @@ body {
 }
 
 .app-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
   margin: auto;
   width: 70%;
 }
