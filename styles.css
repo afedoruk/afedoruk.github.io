@@ -1,0 +1,26 @@
+body {
+  background-image: url("media/background.jpg");
+  background-position: center center;
+}
+
+.string {
+  border: 1px solid #000;
+  min-height: 50px;
+  padding: 5px;
+  width: 400px;
+  margin: 10px;
+}
+
+.string.ok {
+  background: #efe;
+}
+
+.pool {
+  min-height:200px;
+}
+
+.word {
+  cursor: pointer;
+  margin: 5px;
+  font-size: 20px;
+}
