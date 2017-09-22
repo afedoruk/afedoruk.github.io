@@ -11,6 +11,9 @@
 <script src="https://rawgit.com/varHarrie/4afab12e887d8ddfd557ccc59334a03d/raw/b55fb0db0eeca3b1f8aa7a96f818421c206fac7c/vue-dragula.js"></script>
 <div class="container">
   <div id="app">
+    <div class='app-header'>
+      Haiku app    
+    </div>
     <div class='string rounded border-secondary' v-dragula="wordList1" drake='main' v-bind:class="{ok: string1ok }">
       <word v-for="item in wordList1"
             v-bind:word="item"
