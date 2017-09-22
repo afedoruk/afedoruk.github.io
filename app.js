@@ -1742,8 +1742,27 @@ var vm = new Vue({
       } else {
         this.screenNum = 1
       }
-      //console.log(this.screenNum)
-//      this.loadWords()
+    }, speakFromMyHeart: function () {
+
+      var synth = window.speechSynthesis;
+      var msgTxt = this.glueText(this.wordList1) + " " + this.glueText(this.wordList2) + " " + this.glueText(this.wordList3)
+      var msg = new SpeechSynthesisUtterance(msgTxt);
+      msg.rate = 0.8
+      msg.pitch = 0.8
+      //voices = synth.getVoices();
+      //console.log(voices)
+      // msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Whisper'; })[0];
+      synth.speak(msg);
+    },
+    glueText: function(words) {
+      var msgTxt = "";
+      words.forEach(function(item) {
+        msgTxt += item.word
+        if (item.word != "s") {
+          msgTxt += " "
+        }
+      })
+      return msgTxt
     }
   }
 })

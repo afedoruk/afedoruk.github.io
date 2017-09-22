@@ -40,9 +40,8 @@
     <button v-on:click="moreWords"  class="btn btn-dark">
       More words
     </button>
-    <div>
-      <success v-if="string1ok && string2ok && string3ok"></success>
-    </div>
+    <button v-if="string1ok && string2ok && string3ok" type="button" class="btn btn-warning" v-on:click="speakFromMyHeart">Let me speak from my heart!</button>
+
     <audio ref="wordIn" src="media/word_in.ogg"></audio>
     <audio ref="wordOut" src="media/word_out.ogg"></audio>
     <audio ref="lineBroken" src="media/line_broken.ogg"></audio>

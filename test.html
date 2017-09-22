@@ -2,20 +2,17 @@
 <html>
 <head>
   <title>My first Vue app</title>
-  <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-<div id="app">
-  {{ message }}
-</div>
-
 <script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      message: 'Hello Vue!'
-    }
-  })
+  var synth = window.speechSynthesis;
+  var msg = new SpeechSynthesisUtterance('I see dead people!');
+  msg.rate = 0.2
+  msg.pitch = 0.5
+  voices = synth.getVoices();
+  console.log(voices)
+ // msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Whisper'; })[0];
+  synth.speak(msg);
 </script>
 </body>
 </html>
