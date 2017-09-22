@@ -40,18 +40,23 @@
             v-show="item.group == screenNum"
       ></word>
     </div>
+    <p>
     <button v-on:click="moreWords"  class="btn btn-dark">
       More words
     </button>
     <button v-if="string1ok && string2ok && string3ok" type="button" class="btn btn-warning" v-on:click="speakFromMyHeart">Let me speak from my heart!</button>
-
+    </p>
+    <p>
+      <button v-on:click="toggleMusic" class="btn btn-outline-secondary btn-sm" v-bind:class="{active: music}">Music</button>
+      <!--button v-on:click="toggleSound" class="btn btn-sm">Sound</button-->
+    </p>
     <audio ref="wordIn" src="media/word_in.ogg"></audio>
     <audio ref="wordOut" src="media/word_out.ogg"></audio>
     <audio ref="lineBroken" src="media/line_broken.ogg"></audio>
     <audio ref="lines1Completed" src="media/1line.ogg"></audio>
     <audio ref="lines2Completed" src="media/2lines.ogg"></audio>
     <audio ref="lines3Completed" src="media/3lines.ogg"></audio>
-    <audio src="media/koto_cut_reverb_normalize-10db.ogg" loop autoplay>
+    <audio src="media/koto_cut_reverb_normalize-10db.ogg" loop autoplay id="music-player">
   </div>
 </div>
 <script src="app.js"></script>

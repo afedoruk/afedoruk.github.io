@@ -14,6 +14,8 @@ Vue.component('success', {
 
 var vm = new Vue({
   el: '#app', data: {
+    music: true,
+    sound: true,
     screenNum: 1, maxScreenNum: 7, completedLines: 0,
     wordList1: [], wordList2: [], wordList3: [],
     wordList: [
@@ -1763,6 +1765,18 @@ var vm = new Vue({
         }
       })
       return msgTxt
+    },
+    toggleMusic: function () {
+      if(this.music) {
+        document.getElementById('music-player').pause();
+        this.music = false
+      } else {
+        document.getElementById('music-player').play();
+        this.music = true
+      }
+    },
+    toggleSound: function () {
+      
     }
   }
 })
