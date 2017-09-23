@@ -4,16 +4,30 @@
   <title>My first Vue app</title>
 </head>
 <body>
-<audio src="media/koto_cut_reverb_normalize-10db.ogg" loop autoplay>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.13.min.js"></script>
+<script src="ChattyKathy.js"></script>
 <script>
-  var synth = window.speechSynthesis;
-  var msg = new SpeechSynthesisUtterance('I see dead people!');
-  msg.rate = 0.2
-  msg.pitch = 0.5
-  voices = synth.getVoices();
-  console.log(voices)
- // msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Whisper'; })[0];
-  //synth.speak(msg);
+  (function () {
+
+    var awsCredentials = new AWS.Credentials("AKIAJRRK77557JR4W34A", "iJHbb+ikR4/MQaY5OyNwHyUQrS7qjXqnG3Df0a+3");
+    var settings = {
+      awsCredentials: awsCredentials,
+      awsRegion: "us-west-2",
+      pollyVoiceId: "Joey",
+      cacheSpeech: true
+    }
+    var kathy = ChattyKathy(settings);
+
+    //kathy.Speak("Hello world, my name is Kathy!");
+    //kathy.Speak("I can be used for an amazing user experience!");
+    kathy.Speak("<prosody rate='x-slow'>I see dead people!</prosody>");
+
+    if (kathy.IsSpeaking()) {
+      kathy.ShutUp();
+    }
+
+    kathy.ForgetCachedSpeech();
+  })();
 </script>
 </body>
 </html>

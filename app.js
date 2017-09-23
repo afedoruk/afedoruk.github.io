@@ -1746,15 +1746,34 @@ var vm = new Vue({
       }
     }, speakFromMyHeart: function () {
 
-      var synth = window.speechSynthesis;
-      var msgTxt = this.glueText(this.wordList1) + " " + this.glueText(this.wordList2) + " " + this.glueText(this.wordList3)
-      var msg = new SpeechSynthesisUtterance(msgTxt);
+//      var synth = window.speechSynthesis;
+      var msgTxt = this.glueText(this.wordList1) + "<break time='1s'/>" + this.glueText(this.wordList2) + "<break time='1s'/>" + this.glueText(this.wordList3)
+      var awsCredentials = new AWS.Credentials("AKIAJRRK77557JR4W34A", "iJHbb+ikR4/MQaY5OyNwHyUQrS7qjXqnG3Df0a+3");
+      var settings = {
+        awsCredentials: awsCredentials,
+        awsRegion: "us-west-2",
+        pollyVoiceId: "Joey",
+        cacheSpeech: true
+      }
+      var kathy = ChattyKathy(settings);
+      if(this.music) {
+        document.getElementById('music-player').pause();
+        this.music = false
+      }
+      kathy.Speak("<prosody rate='x-slow'>"+msgTxt+"</prosody>");
+
+      if (kathy.IsSpeaking()) {
+        kathy.ShutUp();
+      }
+
+     // kathy.ForgetCachedSpeech();
+      /*var msg = new SpeechSynthesisUtterance(msgTxt);
       msg.rate = 1
       msg.pitch = 0.8
       //voices = synth.getVoices();
       //console.log(voices)
       // msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Whisper'; })[0];
-      synth.speak(msg);
+      synth.speak(msg);*/
     },
     glueText: function(words) {
       var msgTxt = "";
