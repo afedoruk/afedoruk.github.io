@@ -1777,10 +1777,10 @@ var vm = new Vue({
     glueText: function(words) {
       var msgTxt = "";
       words.forEach(function(item) {
-        msgTxt += item.word
         if (item.word != "s") {
           msgTxt += " "
         }
+        msgTxt += item.word
       })
       return msgTxt
     },
