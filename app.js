@@ -1751,7 +1751,7 @@ var vm = new Vue({
       var awsCredentials = new AWS.Credentials("AKIAJRRK77557JR4W34A", "iJHbb+ikR4/MQaY5OyNwHyUQrS7qjXqnG3Df0a+3");
       var settings = {
         awsCredentials: awsCredentials,
-        awsRegion: "us-west-2",
+        awsRegion: "eu-west-1",
         pollyVoiceId: "Joey",
         cacheSpeech: true
       }
@@ -1765,7 +1765,6 @@ var vm = new Vue({
       if (kathy.IsSpeaking()) {
         kathy.ShutUp();
       }
-
      // kathy.ForgetCachedSpeech();
       /*var msg = new SpeechSynthesisUtterance(msgTxt);
       msg.rate = 1
