@@ -1748,7 +1748,7 @@ var vm = new Vue({
 
 //      var synth = window.speechSynthesis;
       var msgTxt = this.glueText(this.wordList1) + "<break time='1s'/>" + this.glueText(this.wordList2) + "<break time='1s'/>" + this.glueText(this.wordList3)
-      var awsCredentials = new AWS.Credentials("AKIAJRRK77557JR4W34A", "iJHbb+ikR4/MQaY5OyNwHyUQrS7qjXqnG3Df0a+3");
+      var awsCredentials = new AWS.Credentials("", "");
       var settings = {
         awsCredentials: awsCredentials,
         awsRegion: "eu-west-1",
