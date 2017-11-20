@@ -9,56 +9,25 @@
 </head>
 
 <body>
-<script src="https://vuejs.org/js/vue.min.js"></script>
-<script src="https://rawgit.com/varHarrie/4afab12e887d8ddfd557ccc59334a03d/raw/b55fb0db0eeca3b1f8aa7a96f818421c206fac7c/vue-dragula.js"></script>
+<script src="https://vuejs.org/js/vue.js"></script>
 <div class="container">
   <div id="app">
     <div class='app-header'>
-      Haiku app    
+      Haiku app
     </div>
-    <div class='string rounded border-secondary' v-dragula="wordList1" drake='main' v-bind:class="{ok: string1ok }">
-      <word v-for="item in wordList1"
-            v-bind:word="item"
-            v-bind:key="item.key"
-      ></word>
-    </div>
-    <div class='string rounded border-secondary' v-dragula="wordList2" drake='main' v-bind:class="{ok: string2ok }">
-      <word v-for="item in wordList2"
-            v-bind:word="item"
-            v-bind:key="item.key"
-      ></word>
-    </div>
-    <div class='string rounded border-secondary' v-dragula="wordList3" drake='main' v-bind:class="{ok: string3ok }">
-      <word v-for="item in wordList3"
-            v-bind:word="item"
-            v-bind:key="item.key"
-      ></word>
-    </div>
-
-    <div class='pool' v-dragula="wordList" drake='main'>
+    <string v-for="string in strings" :num-of-sylls="string.numOfSylls" :word-list="string.wordList" @update="detectCompleteness"></string>
+    <div v-if="isComplete">Да!</div>
+    <!--div class='pool'>
       <word v-for="item in wordList"
             v-bind:word="item"
             v-bind:key="item.key"
-            v-show="item.group == screenNum"
       ></word>
-    </div>
+    </div-->
+
     <p>
-    <button v-on:click="moreWords"  class="btn btn-dark">
-      More words
-    </button>
-    <button v-if="string1ok && string2ok && string3ok" type="button" class="btn btn-warning" v-on:click="speakFromMyHeart">Let me speak from my heart!</button>
+
     </p>
-    <p>
-      <button v-on:click="toggleMusic" class="btn btn-outline-secondary btn-sm" v-bind:class="{active: music}">Music</button>
-      <!--button v-on:click="toggleSound" class="btn btn-sm">Sound</button-->
-    </p>
-    <audio ref="wordIn" src="media/word_in.ogg"></audio>
-    <audio ref="wordOut" src="media/word_out.ogg"></audio>
-    <audio ref="lineBroken" src="media/line_broken.ogg"></audio>
-    <audio ref="lines1Completed" src="media/1line.ogg"></audio>
-    <audio ref="lines2Completed" src="media/2lines.ogg"></audio>
-    <audio ref="lines3Completed" src="media/3lines.ogg"></audio>
-    <audio src="media/koto_cut_reverb_normalize-10db.ogg" loop autoplay id="music-player">
+
   </div>
 </div>
 <script src="app.js"></script>
